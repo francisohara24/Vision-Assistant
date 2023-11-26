@@ -14,7 +14,7 @@
 # mkdir models
 # gdown --id 12pTojgg7qoXrsnyMsNl-WOil1eetZh7L -O ./models/tts_model.pth.tar
 # gdown --id 12Z5r4rdOx_7LmD-pyXvIyt4vvGpCmOQy -O ./models/config.json
-# download pre-trained MelGAN model, configuration file and model statistics file.
+
 # gdown --id 12YvyBhE17VYIjOg4vYWD_xKAAdB0r4qE -O ./models/vocoder_model.pth.tar
 # gdown --id 12npX6u1RbMZzV6LBlnKQcazZbwfFTQlk -O ./models/config_vocoder.json
 # gdown --id 12oeQ3slzyr4lyMEfs-OfV_RUiJg8cOz7 -O ./models/scale_stats.npy
@@ -39,14 +39,14 @@ def tts(model, text, CONFIG, use_cuda, ap, use_gl, figures=True):
     print(" > Run-time: {}".format(time.time() - t_1))
     print(" > Real-time factor: {}".format(rtf))
     print(" > Time per step: {}".format(tps))
-    IPython.display.display(IPython.display.Audio(waveform, rate=CONFIG.audio['sample_rate']))
+    sd.play(waveform, ap.sample_rate)
     return alignment, mel_postnet_spec, stop_tokens, waveform
 
 # Load Models
 import os
 import torch
 import time
-import IPython
+import sounddevice as sd
 
 from TTS.utils.generic_utils import setup_model
 from TTS.utils.io import load_config
