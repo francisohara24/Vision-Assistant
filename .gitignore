@@ -2,4 +2,4 @@ scripts/rpi_ocr/venv
 scripts/rpi_tts/venv
 /notebooks/TTS/mozilla-tts/models/
 /notebooks/TTS/mozilla-tts/TTS/
-
+.idea
