@@ -17,10 +17,13 @@ button = Button(14)
 # counter for no. of images captured
 n_captures = 0
 
-    
 # run the program indefinitely
 while True:
+    # capture image when button pressed
     if button.is_pressed:
-        camera.capture_file(f"./scripts/rpi_camera/images/image_{n_captures}.jpg")
-        n_captures += 1    
-    sleep(0.5)
+        print("Pushed")
+        camera.capture_file(f"data/rpi_images/image_{n_captures}.jpg")
+        n_captures += 1
+
+    # delay 0.25 seconds to avoid overcapturing images
+    sleep(0.25)
