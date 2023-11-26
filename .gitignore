@@ -3,3 +3,5 @@ scripts/rpi_tts/venv
 /notebooks/TTS/mozilla-tts/models/
 /notebooks/TTS/mozilla-tts/TTS/
 .idea
+/scripts/rpi_tts/models/
+/scripts/rpi_tts/TTS/
