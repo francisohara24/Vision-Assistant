@@ -23,3 +23,4 @@ while True:
     if button.is_pressed:
         camera.capture_file(f"./scripts/rpi_camera/images/image_{n_captures}.jpg")
         n_captures += 1    
+    sleep(0.5)
