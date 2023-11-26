@@ -33,13 +33,17 @@ def tts(model, text, CONFIG, use_cuda, ap, use_gl, figures=True):
         waveform = waveform.cpu()
 
     waveform = waveform.numpy()
+
     rtf = (time.time() - t_1) / (len(waveform) / ap.sample_rate)
     tps = (time.time() - t_1) / len(waveform)
     print(waveform.shape)
     print(" > Run-time: {}".format(time.time() - t_1))
     print(" > Real-time factor: {}".format(rtf))
     print(" > Time per step: {}".format(tps))
+# TODO: determine duration of resulting wav file and call time.sleep for that duration.
     sd.play(waveform, ap.sample_rate)
+    time.sleep(120)
+    sd.stop()
     return alignment, mel_postnet_spec, stop_tokens, waveform
 
 # Load Models
@@ -106,5 +110,5 @@ if use_cuda:
 vocoder_model.eval()
 
 # Run Inference
-sentence =  open("./data/colby_affirmation.txt").read()
+sentence = open("./data/colby_affirmation.txt").read()
 align, spec, stop_tokens, wav = tts(model, sentence, TTS_CONFIG, use_cuda, ap, use_gl=False, figures=True)
