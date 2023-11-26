@@ -8,25 +8,18 @@ from time import sleep
 camera = Picamera2()
 camera.start(show_preview=True)
 
-# set to continuous autofocus mode
+# set camera to continuous autofocus mode
 camera.set_controls({"AfMode": 2, "AfTrigger":0})
+
+# initialize button at GPIO14
+button = Button(14)
 
 # counter for no. of images captured
 n_captures = 0
 
-# define function for capturing image w/ camera
-def capture():
-    global n_captures
-    camera.capture_file(f"./scripts/rpi_camera/images/image_{n_captures}.jpg")
-    n_captures += 1    
     
-
-# Initialize button at GPIO14
-button = Button(14)
-
-# Assign button callback to capture function
-button.when_pressed = capture() 
-
 # run the program indefinitely
 while True:
-    sleep(1)
+    if button.is_pressed:
+        camera.capture_file(f"./scripts/rpi_camera/images/image_{n_captures}.jpg")
+        n_captures += 1    
