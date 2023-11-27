@@ -5,3 +5,5 @@ scripts/rpi_tts/venv
 .idea
 /scripts/rpi_tts/models/
 /scripts/rpi_tts/TTS/
+/notebooks/TTS/mozilla_tts_tensorflow/TTS/
+/notebooks/TTS/mozilla_tts_tensorflow/models/
