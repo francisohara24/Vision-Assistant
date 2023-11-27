@@ -7,3 +7,4 @@ scripts/rpi_tts/venv
 /scripts/rpi_tts/TTS/
 /notebooks/TTS/mozilla_tts_tensorflow/TTS/
 /notebooks/TTS/mozilla_tts_tensorflow/models/
+/notebooks/TTS/tensorflow-TTS/TensorFlowTTS/
