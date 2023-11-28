@@ -22,7 +22,7 @@ while True:
     # capture image when button pressed
     if button.is_pressed:
         print("Pushed")
-        camera.capture_file(f"data/rpi_images/image_{n_captures}.jpg")
+        camera.capture_file(f"/home/francisohara24/Projects/AI-Reader/data/rpi_images/image_{n_captures}.jpg")
         n_captures += 1
 
     # delay 0.25 seconds to avoid overcapturing images
