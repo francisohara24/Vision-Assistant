@@ -21,7 +21,7 @@ n_captures = 0
 while True:
     # capture image when button pressed
     if button.is_pressed:
-        print("Pushed")
+        print(f"Captured image_{n_captures}")
         camera.capture_file(f"/home/francisohara24/Projects/AI-Reader/data/rpi_images/image_{n_captures}.jpg")
         n_captures += 1
 
