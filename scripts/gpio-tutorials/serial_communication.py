@@ -5,7 +5,8 @@ import serial
 ser = serial.Serial("/dev/ttyAMA0")
 
 # read first 100 characters sent over port
-ser.read(100)
+data = ser.read(100)
+print(data)
 
 # close the serial connection
 ser.close()
