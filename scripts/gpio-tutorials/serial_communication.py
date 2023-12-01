@@ -1,4 +1,4 @@
-# Code I wrote to test serial communication on the Raspberry Pi
+# Code I wrote to test UART serial communication on the Raspberry Pi
 import serial
 
 # connect to serial port ttyAMA0
