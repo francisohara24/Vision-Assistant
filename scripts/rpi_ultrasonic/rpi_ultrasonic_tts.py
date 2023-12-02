@@ -20,5 +20,3 @@ engine.say(sentence)
 
 # read the distance aloud
 engine.runAndWait()
-
-
