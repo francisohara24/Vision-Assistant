@@ -1,27 +1,17 @@
-#!/usr/bin/python3
-# Filename: rangeFind.py
+# import required libraries
+import time
+import board
+import adafruit_hcsr04
 
-# sample script to read range values from Maxbotix ultrasonic rangefinder
-
-from time import sleep
-import maxSonarTTY
-
-serialPort = "/dev/ttyAMA0"
-maxRange = 6450  # maximum range in mm for MB1040 sensor
-sleepTime = 5
-minMM = 9999
-maxMM = 0
+# create ultrasonic sensor instance
+sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D5, echo_pin=board.D6)
 
 while True:
-    mm = maxSonarTTY.measure(serialPort)
-    if mm >= maxRange:
-        print("no target")
-        sleep(sleepTime)
-        continue
-    if mm < minMM:
-        minMM = mm
-    if mm > maxMM:
-        maxMM = mm
-
-    print("distance:", mm, "  min:", minMM, "max:", maxMM)
-    sleep(sleepTime)
+    try:
+        # read distance from sensor and print
+        print(f"Distance: {sonar.distance:0.2f} cm")
+    # handle reading error
+    except RuntimeError:
+        print("Failed. Retrying...")
+    # wait 0.1 seconds before next reading
+    time.sleep(0.1)
