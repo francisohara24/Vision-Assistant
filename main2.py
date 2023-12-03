@@ -18,6 +18,7 @@ def ocr_pipeline():
             # test code
             #image = capture_image.capture()
             text = ocr.extract_text(image)
+            print(text)
             tts.say(text)
             time.sleep(0.25)
 
