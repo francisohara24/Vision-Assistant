@@ -5,6 +5,7 @@ from ai_reader import tts
 from gpiozero import Button
 from PIL import Image
 import threading
+import time
 
 
 # define buttons for triggering pipelines
@@ -22,6 +23,8 @@ def ocr_pipeline():
             text = ocr.extract_text(image)
             print(text)
             tts.say(text)
+            time.sleep(1)
+
 
 
 # function for triggering distance measurement pipeline
@@ -31,6 +34,7 @@ def ultrasonic_pipeline():
         if ultrasonic_button.is_pressed:
             distance = proximity.check_proximity()
             tts.say(f"You are {distance} centimeters away from the nearest object.")
+            time.sleep(1s)
 
 
 # schedule pipeline coroutines as tasks in top-level coroutine
