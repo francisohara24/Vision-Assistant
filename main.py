@@ -34,7 +34,7 @@ def ultrasonic_pipeline():
         if ultrasonic_button.is_pressed:
             distance = proximity.check_proximity()
             tts.say(f"You are {distance} centimeters away from the nearest object.")
-            time.sleep(1s)
+            time.sleep(1)
 
 
 # schedule pipeline coroutines as tasks in top-level coroutine
