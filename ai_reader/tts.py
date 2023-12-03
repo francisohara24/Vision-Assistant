@@ -1,5 +1,6 @@
 """Function for converting input text into synthesized speech using the current Text-To-Speech Model.
-Current TTS model: pyttsx3
+Current TTS model: pyttsx3 (https://pypi.org/project/pyttsx3/)
+TODO: checkout Festival Text to Speech, mycroft-AI Mimic3(https://github.com/MycroftAI/plugin-tts-mimic3/blob/67552a4167752caa2998efb75d55e588a81a4d92/mycroft_plugin_tts_mimic3/__init__.py#L170)
 """
 import pyttsx3
 
@@ -21,7 +22,7 @@ def say(text_input: str) -> None:
     tts = pyttsx3.init()
 
     # set appropriate speech rate for the model
-    tts.setProperty("rate", 180)
+    tts.setProperty("rate", 170)
 
     # read the input text aloud
     tts.say(text_input)
