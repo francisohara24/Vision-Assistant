@@ -21,6 +21,7 @@ def extract_text(image: Image.Image) -> str:
     """
     print("OCR function called")
     text = pytesseract.image_to_string(image, timeout=10)
+    print("tesseract finished running")
 
     if len(text) > 0:
         return text
