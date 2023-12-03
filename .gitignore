@@ -11,3 +11,4 @@ scripts/rpi_tts/venv
 /notebooks/TTS/tensorflow-TTS/models/
 /scripts/rpi_tts/venv_pyttsx3
 /scripts/rpi_ultrasonic/venv
+/venv
