@@ -20,3 +20,7 @@ def check_proximity() -> str:
 
     #TODO: add error handling code
 
+
+if __name__ == "__main__":
+    distance = check_proximity()
+    print(f"Current proximity: {distance} centimeters.")
