@@ -23,7 +23,7 @@ async def ocr_pipeline():
             # text = ocr.extract_text(image)
             # for testing
             print("OCR function called")
-            text = pytesseract.image_to_string("image2.jpg", timeout=10)
+            text = pytesseract.image_to_string("../data/rpi_images/image_26.jpg", timeout=10)
             print("tesseract finished running")
             # for testing
             tts.say(text)
