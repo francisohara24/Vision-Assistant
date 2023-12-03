@@ -27,6 +27,6 @@ def extract_text(image: Image.Image) -> str:
     return "No text was detected!"
 
 if __name__ == "__main__":
-    image = Image.open("../data/rpi_images/image_11.jpg")
+    image = Image.open("../data/rpi_images/image_26.jpg")
     result = extract_text(image)
     print(result)
