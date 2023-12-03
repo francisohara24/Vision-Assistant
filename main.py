@@ -12,8 +12,7 @@ ocr_button = Button(17)
 ultrasonic_button = Button(27)
 
 
-# switch from asynchronous to multithreading
-# coroutine function for indefinite OCR sequence
+# function for triggering text reading pipeline
 def ocr_pipeline():
     """Run the text recognition and speech synthesis pipeline of the project."""
     while True:
@@ -25,7 +24,7 @@ def ocr_pipeline():
             tts.say(text)
 
 
-# coroutine function for indefinite Ultrasonic distance sequence
+# function for triggering distance measurement pipeline
 def ultrasonic_pipeline():
     """Run the ultrasonic proximity detection pipeline of the project."""
     while True:
