@@ -4,9 +4,7 @@ from ai_reader import proximity
 from ai_reader import tts
 from gpiozero import Button
 import asyncio
-import time
-import pytesseract # for testing
-from PIL import Image
+
 
 # define buttons for triggering pipelines
 ocr_button = Button(17)
@@ -18,14 +16,8 @@ async def ocr_pipeline():
     """Run the text recognition and speech synthesis pipeline of the project."""
     while True:
         if ocr_button.is_pressed:
-
             image = capture_image.capture()
-            # text = ocr.extract_text(image)
-            # for testing
-            print("OCR function called")
-            text = pytesseract.image_to_string("../data/rpi_images/image_26.jpg", timeout=10)
-            print("tesseract finished running")
-            # for testing
+            text = ocr.extract_text(image)
             tts.say(text)
             await asyncio.sleep(0.25)
 
@@ -42,9 +34,13 @@ async def ultrasonic_pipeline():
 # schedule pipeline coroutines as tasks in top-level coroutine
 async def main():
     """Top-level coroutine for all pipelines"""
-    await asyncio.gather(ocr_pipeline(), ultrasonic_pipeline())
+    task1 = asyncio.create_task(ocr_pipeline())
+    task2 = asyncio.create_task(ultrasonic_pipeline())
+    await task1
+    await task2
 
 # run top level coroutine
 asyncio.run(main())
 
 #TODO: use button callbacks to implement asynchronous features.
+# pytesseract runs low-level c++ code under the hood. The code likely breaks under asynchronous programming conditions.
