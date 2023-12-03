@@ -2,7 +2,6 @@
 from picamera2 import Picamera2
 from libcamera import controls
 from PIL.Image import Image
-import os
 
 # instantiate camera object
 camera = Picamera2()
@@ -19,6 +18,5 @@ def capture() -> Image:
     # test
     image = camera.capture_image()
     image.save("test.jpg")
-    print(os.getcwd())
     #test
-    #Areturn camera.capture_image()
+    #return camera.capture_image()
