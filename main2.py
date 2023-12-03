@@ -13,7 +13,7 @@ def ocr_pipeline():
     while True:
         if ocr_button.is_pressed:
             # test code
-            image = Image.open("test.jpg")
+            image = Image.open("./test.jpg")
             # test code
             #image = capture_image.capture()
             text = ocr.extract_text(image)
