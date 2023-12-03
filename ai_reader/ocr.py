@@ -1,12 +1,23 @@
 """Function for recognizing and extracting text from a Pillow Image using the current OCR model.
 Current model: Tesseract-OCR (https://github.com/tesseract-ocr/tesseract)
+TODO: Implement Online mode vs Offline mode
 """
 import pytesseract
 from PIL import Image
+import requests
 
 
-def extract_text(image: Image.Image) -> str:
-    """Extract any text contained within `image`.
+def extract_text(image):
+    """Check if device is online or offline and call the appropriate extract_text function"""
+    request = requests.get("http://clients3.google.com/generate_204")
+    if request.status_code == 204:
+        extract_online(image)
+    else:
+        extract_offline(image)
+
+
+def extract_offline(image: Image.Image) -> str:
+    """Extract and return any text contained within `image` using the offline text recognition model.
 
     Parameters
     ----------
@@ -25,6 +36,12 @@ def extract_text(image: Image.Image) -> str:
         return text
 
     return "No text was detected!"
+
+
+def extract_online(image: Image.Image) -> str:
+    """Extract and return any text contained within `image` using the cloud-based text recognition model."""
+    return "You are online!"
+
 
 if __name__ == "__main__":
     image = Image.open("../data/rpi_images/image_26.jpg")
