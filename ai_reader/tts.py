@@ -1,9 +1,11 @@
-"""Function for converting extracted text into synthesized speech."""
+"""Function for converting input text into synthesized speech using the current Text-To-Speech Model.
+Current TTS model: pyttsx3
+"""
 import pyttsx3
 
 
 def say(text_input: str) -> None:
-    """Read text_input aloud to the user using the device's current text-to-speech model.
+    """Read text_input aloud to the user using the current text to speech model.
 
     Parameters
     ----------
