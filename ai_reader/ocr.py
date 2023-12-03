@@ -19,7 +19,7 @@ def extract_text(image: Image.Image) -> str:
         The extracted text if any text was recognized.
         If not, the string "No text was detected" is returned instead.
     """
-    text = pytesseract.image_to_string(image, timeout=10)
+    text = pytesseract.image_to_string(image)
 
     if len(text) > 0:
         return text
