@@ -18,7 +18,9 @@ async def ocr_pipeline():
     while True:
         if ocr_button.is_pressed:
             image = capture_image.capture()
+            print(image)
             text = ocr.extract_text(image)
+            print(text)
             tts.say(text)
             await asyncio.sleep(0.25)
 
