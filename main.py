@@ -20,10 +20,11 @@ async def ocr_pipeline():
         if ocr_button.is_pressed:
 
             image = capture_image.capture()
+            image.save("image.jpg")
             # text = ocr.extract_text(image)
             # for testing
             print("OCR function called")
-            text = pytesseract.image_to_string(image, timeout=10)
+            text = pytesseract.image_to_string("image.jpg", timeout=10)
             print("tesseract finished running")
             # for testing
             tts.say(text)
