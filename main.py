@@ -6,7 +6,7 @@ from gpiozero import Button
 import asyncio
 import time
 import pytesseract # for testing
-
+from PIL import Image
 
 # define buttons for triggering pipelines
 ocr_button = Button(17)
@@ -20,11 +20,11 @@ async def ocr_pipeline():
         if ocr_button.is_pressed:
 
             image = capture_image.capture()
-            image.save("image.jpg")
             # text = ocr.extract_text(image)
             # for testing
             print("OCR function called")
-            text = pytesseract.image_to_string("image.jpg", timeout=10)
+            picture = Image.open("image2.jpg")
+            text = pytesseract.image_to_string(picture, timeout=10)
             print("tesseract finished running")
             # for testing
             tts.say(text)
