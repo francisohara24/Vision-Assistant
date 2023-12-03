@@ -6,6 +6,7 @@ from gpiozero import Button
 import time
 import pytesseract # for testing
 from PIL import Image
+import os
 
 
 def ocr_pipeline():
@@ -13,6 +14,7 @@ def ocr_pipeline():
     while True:
         if ocr_button.is_pressed:
             # test code
+            print(os.getcwd())
             image = Image.open("test.jpg")
             # test code
             #image = capture_image.capture()
