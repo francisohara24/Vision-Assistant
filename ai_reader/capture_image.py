@@ -13,10 +13,12 @@ camera.start()
 camera.set_controls({"AfMode": 2, "AfTrigger": 0})
 
 
-def capture() -> Image:
-    """Capture an image with the camera and return it as a Pillow Image."""
+def capture() -> str:
+    """Capture an image with the camera and return the path to the captured image."""
     # test
     image = camera.capture_image()
-    image.save("test.jpg")
+    image_path = "./data/temp/input.jpg"
+    image.save(image_path)
+    return image_path
     #test
     #return camera.capture_image()
