@@ -5,6 +5,7 @@ from ai_reader import tts
 from gpiozero import Button
 import asyncio
 import time
+import pytesseract # for testing
 
 
 # define buttons for triggering pipelines
@@ -17,10 +18,14 @@ async def ocr_pipeline():
     """Run the text recognition and speech synthesis pipeline of the project."""
     while True:
         if ocr_button.is_pressed:
+
             image = capture_image.capture()
-            print(image)
-            text = ocr.extract_text(image)
-            print(text)
+            # text = ocr.extract_text(image)
+            # for testing
+            print("OCR function called")
+            text = pytesseract.image_to_string(image, timeout=10)
+            print("tesseract finished running")
+            # for testing
             tts.say(text)
             await asyncio.sleep(0.25)
 
@@ -41,3 +46,5 @@ async def main():
 
 # run top level coroutine
 asyncio.run(main())
+
+#TODO: use button callbacks to implement asynchronous features.
