@@ -4,6 +4,8 @@ TODO: checkout Festival Text to Speech, mycroft-AI Mimic3(https://github.com/Myc
 """
 import pyttsx3
 import requests
+from google.cloud import texttospeech
+from playsound import playsound
 
 
 def say(input_text: str) -> None:
@@ -40,7 +42,28 @@ def say_offline(text_input: str) -> None:
 
 
 def say_online(input_text: str) -> None:
-    print("You are online!")
+    # instantiate the google cloud text to speech client
+    client = texttospeech.TextToSpeechClient()
+
+    # set the text input to be synthesized
+    synthesis_input = texttospeech.SynthesisInput(text=input_text)
+
+    # configure the voice to be used for synthesis
+    voice = texttospeech.VoiceSelectionParams(language_code="en-US", ssml_gender=texttospeech.SsmlVoiceGender.FEMALE)
+
+    # select type of audio file to be returned
+    audio_config = texttospeech.AudioConfig(audio_encoding=texttospeech.AudioEncoding.MP3)
+
+    # perform text to speech request with the above parameters
+    response = client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
+
+    # write the response as an mp3 file
+    with open("./data/temp/output.mp3", "wb") as output:
+        output.write(response.audio_content)
+        print("speech generated...")
+
+    # play the generated speech
+    playsound("./data/temp/output.mp3")
 
 
 if __name__ == "__main__":
