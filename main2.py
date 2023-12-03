@@ -8,22 +8,16 @@ import pytesseract # for testing
 from PIL import Image
 
 
-
-
 def ocr_pipeline():
     """Run the text recognition and speech synthesis pipeline of the project."""
     while True:
         if ocr_button.is_pressed:
 
             image = capture_image.capture()
-            # text = ocr.extract_text(image)
-            # for testing
-            print("OCR function called")
-            text = pytesseract.image_to_string("../data/rpi_images/image_26.jpg", timeout=10)
-            print("tesseract finished running")
-            # for testing
+            text = ocr.extract_text(image)
             tts.say(text)
             time.sleep(0.25)
+
 
 def ultrasonic_pipeline():
     """Run the ultrasonic proximity detection pipeline of the project."""
