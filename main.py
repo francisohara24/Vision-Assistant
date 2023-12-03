@@ -26,7 +26,6 @@ def ocr_pipeline():
             time.sleep(1)
 
 
-
 # function for triggering distance measurement pipeline
 def ultrasonic_pipeline():
     """Run the ultrasonic proximity detection pipeline of the project."""
