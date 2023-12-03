@@ -15,5 +15,5 @@ camera.set_controls({"AfMode": 2, "AfTrigger": 0})
 
 def capture() -> Image:
     """Capture an image with the camera and return it as a Pillow Image."""
-    camera.capture_file("image.jpg")  # test code
+    camera.capture_file("image2.jpg")  # test code
     return camera.capture_image()
