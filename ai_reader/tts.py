@@ -5,7 +5,7 @@ TODO: checkout Festival Text to Speech, mycroft-AI Mimic3(https://github.com/Myc
 import pyttsx3
 import requests
 from google.cloud import texttospeech
-from playsound import playsound
+import os
 
 
 def say(input_text: str) -> None:
@@ -63,7 +63,7 @@ def say_online(input_text: str) -> None:
         print("speech generated...")
 
     # play the generated speech
-    playsound("./data/temp/output.mp3")
+    os.system("mpg123 ./data/temp/output.mp3")
 
 
 if __name__ == "__main__":
