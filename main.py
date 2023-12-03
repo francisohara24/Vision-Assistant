@@ -18,8 +18,8 @@ def ocr_pipeline():
     """Run the text recognition and speech synthesis pipeline of the project."""
     while True:
         if ocr_button.is_pressed:
-            capture_image.capture()
-            image = Image.open("test.jpg")
+            image_path = capture_image.capture()
+            image = Image.open(image_path)
             text = ocr.extract_text(image)
             print(text)
             tts.say(text)
