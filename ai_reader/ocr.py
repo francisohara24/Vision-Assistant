@@ -59,7 +59,7 @@ def extract_online(image_path: str) -> str:
     texts = [text.description for text in response.text_annotations]
 
     # join the extracted texts into a single text and return
-    return "\n".join(texts)
+    return texts[0]
 
 
 if __name__ == "__main__":
