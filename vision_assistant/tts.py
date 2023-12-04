@@ -76,7 +76,7 @@ def say_online(input_text: str) -> None:
         print("speech generated...")  # print message to aid in remote debugging
 
     # play the generated speech using system command
-    os.system("mpg123 ./data/temp/output.mp3")
+    os.system("mpg123 ~/Projects/Vision-Assistant/data/temp/output.mp3")
 
 
 # main script for testing the module
