@@ -22,7 +22,7 @@ def ocr_pipeline():
             image = Image.open(image_path)
             text = ocr.extract_text(image)
             print(text)
-            tts.say(text)
+            #tts.say(text)
             time.sleep(1)
 
 
