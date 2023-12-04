@@ -41,6 +41,7 @@ def extract_offline(image: Image.Image) -> str:
 
 def extract_online(image: Image.Image) -> str:
     """Extract and return any text contained within `image` using the cloud-based text recognition model."""
+    print("you are within extract_online")
     return "You are online!"
 
 
