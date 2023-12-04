@@ -1,8 +1,8 @@
 # import required libraries
-from ai_reader import ocr
-from ai_reader import capture_image
-from ai_reader import proximity
-from ai_reader import tts
+from vision_assistant import ocr
+from vision_assistant import capture_image
+from vision_assistant import proximity
+from vision_assistant import tts
 from gpiozero import Button
 import threading
 import time
