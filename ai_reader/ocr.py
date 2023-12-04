@@ -56,10 +56,10 @@ def extract_online(image_path: str) -> str:
     response = client.text_detection(image=image)
 
     # extract actual text from API response
-    texts = [text.description for text in response.text_annotations]
+    text = response.text_annotations[0].description
 
     # join the extracted texts into a single text and return
-    return texts[0]
+    return text
 
 
 if __name__ == "__main__":
