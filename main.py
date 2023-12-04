@@ -1,3 +1,5 @@
+"""Main script for operating the device."""
+
 # import required libraries
 from vision_assistant import ocr
 from vision_assistant import capture_image
@@ -29,6 +31,8 @@ def ocr_pipeline():
 
             # read aloud the extracted text
             tts.say(text)
+
+            # delay for 1 second to account for long button presses.
             time.sleep(1)
 
 
@@ -42,10 +46,14 @@ def ultrasonic_pipeline():
             time.sleep(1)
 
 
-# schedule pipeline coroutines as tasks in top-level coroutine
 if __name__ == "__main__":
+    # prompt the user when device turns on
     tts.say("Power On!")
+
+    # create a thread for each pipeline function
     ocr_thread = threading.Thread(target=ocr_pipeline)
     ultrasonic_thread = threading.Thread(target=ultrasonic_pipeline)
+
+    # start the created threads so the pipelines can execute concurrently
     ocr_thread.start()
     ultrasonic_thread.start()
