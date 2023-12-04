@@ -1,6 +1,5 @@
 """Function for recognizing and extracting text from a Pillow Image using the current OCR model.
 Current model: Tesseract-OCR (https://github.com/tesseract-ocr/tesseract)
-TODO: Implement Online mode vs Offline mode
 """
 import pytesseract
 from PIL import Image
