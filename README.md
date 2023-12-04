@@ -1,5 +1,5 @@
 # Vision-Assistant
-A low-cost assistive technology device for the blind and visually impaired that uses computer vision models to extract text from the real world and read aloud to its user in real-time.
+A low-cost assistive technology device for the blind and visually impaired that uses computer vision models to extract text from the real world and read the extracted text aloud to users in real-time.
 
  - The device was built entirely using open-source hardware and deep learning models.
  - This repository contains all the code that runs on the device's hardware.
