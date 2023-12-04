@@ -20,7 +20,7 @@ def capture() -> str:
     image = camera.capture_image()
 
     # define path for saving image
-    image_path = "~/Projects/Vision-Assistant/data/temp/input.jpg"
+    image_path = "./Projects/Vision-Assistant/data/temp/input.jpg"
 
     # save the image
     image.save(image_path)

@@ -71,12 +71,12 @@ def say_online(input_text: str) -> None:
     response = client.synthesize_speech(input=synthesis_input, voice=voice, audio_config=audio_config)
 
     # write the response into an mp3 file
-    with open("~/Projects/Vision-Assistant/data/temp/output.mp3", "wb") as output:
+    with open("./Projects/Vision-Assistant/data/temp/output.mp3", "wb") as output:
         output.write(response.audio_content)
         print("speech generated...")  # print message to aid in remote debugging
 
     # play the generated speech using system command
-    os.system("mpg123 ~/Projects/Vision-Assistant/data/temp/output.mp3")
+    os.system("mpg123 ./Projects/Vision-Assistant/data/temp/output.mp3")
 
 
 # main script for testing the module

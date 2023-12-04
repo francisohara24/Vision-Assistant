@@ -98,6 +98,6 @@ def extract_online(image_path: str) -> str:
 
 # main script for testing the module
 if __name__ == "__main__":
-    image_path = "~/Projects/Vision-Assistant/data/rpi_images/image_26.jpg"
+    image_path = "./Projects/Vision-Assistant/data/rpi_images/image_26.jpg"
     result = extract_text(image_path)
     print(result)
