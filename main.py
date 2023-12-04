@@ -19,10 +19,9 @@ def ocr_pipeline():
     while True:
         if ocr_button.is_pressed:
             image_path = capture_image.capture()
-            image = Image.open(image_path)
-            text = ocr.extract_text(image)
+            text = ocr.extract_text(image_path)
             print(text)
-            #tts.say(text)
+            tts.say(text)
             time.sleep(1)
 
 
