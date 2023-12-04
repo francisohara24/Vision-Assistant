@@ -15,7 +15,7 @@ camera.set_controls({"AfMode": 2, "AfTrigger": 0})
 
 
 def capture() -> str:
-    """Capture an image with the camera, saves the image, and returns the path to the captured image."""
+    """Capture an image with the camera, save the image, and return the path to the captured image."""
     # capture the image
     image = camera.capture_image()
 
