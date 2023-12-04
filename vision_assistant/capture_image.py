@@ -27,5 +27,3 @@ def capture() -> str:
 
     # return path to saved image
     return image_path
-
-
