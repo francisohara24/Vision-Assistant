@@ -5,6 +5,7 @@ TODO: Implement Online mode vs Offline mode
 import pytesseract
 from PIL import Image
 import requests
+from google.cloud import vision
 
 
 def extract_text(image):
@@ -16,7 +17,7 @@ def extract_text(image):
         return extract_offline(image)
 
 
-def extract_offline(image: Image.Image) -> str:
+def extract_offline(image_path: str) -> str:
     """Extract and return any text contained within `image` using the offline text recognition model.
 
     Parameters
@@ -30,6 +31,7 @@ def extract_offline(image: Image.Image) -> str:
         The extracted text if any text was recognized.
         If not, the string "No text was detected" is returned instead.
     """
+    image = Image.open(image_path)
     text = pytesseract.image_to_string(image)
 
     if len(text) > 0:
@@ -38,9 +40,27 @@ def extract_offline(image: Image.Image) -> str:
     return "No text was detected!"
 
 
-def extract_online(image: Image.Image) -> str:
-    """Extract and return any text contained within `image` using the cloud-based text recognition model."""
-    return "You are online!"
+def extract_online(image_path: str) -> str:
+    """Extract and return any text contained within image located at `image_path` using the cloud-based text recognition model."""
+
+    # instantiate google vision client for text recognition
+    client = vision.ImageAnnotatorClient()
+
+    # open image file to be read as binary and extract content
+    with open(image_path, "rb") as image_file:
+        content = image_file.read()
+
+    # convert image to google vision image format
+    image = vision.Image(content=content)
+
+    # send a request for text recognition on the image to the google vision API
+    response = client.text_detection(image=image)
+
+    # extract actual text from API response
+    texts = [text.description for text in response.text_annotations]
+
+    # join the extracted texts into a single text and return
+    return "\n".join(texts)
 
 
 if __name__ == "__main__":
