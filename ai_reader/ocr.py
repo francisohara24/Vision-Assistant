@@ -11,6 +11,7 @@ def extract_text(image):
     """Check if device is online or offline and call the appropriate extract_text function"""
     request = requests.get("http://clients3.google.com/generate_204")
     if request.status_code == 204:
+        print("online...")
         extract_online(image)
     else:
         extract_offline(image)
