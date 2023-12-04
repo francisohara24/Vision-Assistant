@@ -1,4 +1,5 @@
-"""Script for capturing image using raspberry Pi camera"""
+"""Module for capturing image using raspberry Pi camera"""
+# import required libraries
 from picamera2 import Picamera2
 from libcamera import controls
 from PIL.Image import Image
@@ -9,16 +10,22 @@ camera = Picamera2()
 # turn on camera
 camera.start()
 
-# enable camera autofocus for clearer images
+# enable camera autofocus features for clearer images
 camera.set_controls({"AfMode": 2, "AfTrigger": 0})
 
 
 def capture() -> str:
-    """Capture an image with the camera and return the path to the captured image."""
-    # test
+    """Capture an image with the camera, saves the image, and returns the path to the captured image."""
+    # capture the image
     image = camera.capture_image()
+
+    # define path for saving image
     image_path = "./data/temp/input.jpg"
+
+    # save the image
     image.save(image_path)
+
+    # return path to saved image
     return image_path
-    #test
-    #return camera.capture_image()
+
+
