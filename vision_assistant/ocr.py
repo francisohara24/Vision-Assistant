@@ -83,17 +83,17 @@ def extract_online(image_path: str) -> str:
     # send request for text recognition using the client
     response = client.text_detection(image=image)
 
-    # check if request was unsuccessful.
+    # check if request was unsuccessful due to API errors.
     if response.error.message:
         return "Sorry. Please try again."
 
-    # if request successful, extract actual text from API response
-    text = response.text_annotations[0].description
-
-    # return extracted text or prompt user if no text could be found.
-    if len(text) > 0:
+    try:
+        # if request successful, extract actual text from response if any
+        text = response.text_annotations[0].description
         return text
-    return "No text was detected."
+
+    except IndexError:
+        return "No text was detected."
 
 
 # main script for testing the module
