@@ -12,3 +12,4 @@ scripts/rpi_tts/venv
 /scripts/rpi_tts/venv_pyttsx3
 /scripts/rpi_ultrasonic/venv
 /venv
+/data/prototype_demo_original.png
