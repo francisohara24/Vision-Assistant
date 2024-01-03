@@ -1,0 +1,30 @@
+Level: Info
+Message: Autofocus processing was blocked because a document already has a focused element.
+Source: https://eu1.iam.3dexperience.3ds.com/login?serverId=FRONT_1&service=https%3A//eu1-ifwe.3dexperience.3ds.com/%3Faddinmode%3Dsolidworks%26utm_medium%3DNATIVE_APP
+Line: 0
+-----------------------
+Level: Info
+Message: Tracker.js - init - version 2.0.10
+Source: https://eu1.iam.3dexperience.3ds.com/3DPassport/resources-230929151908/js/libs/Usage/Usage.js
+Line: 1
+-----------------------
+Level: Info
+Message: Autofocus processing was blocked because a document already has a focused element.
+Source: https://eu1.iam.3dexperience.3ds.com/login?serverId=FRONT_1&service=https%3A//eu1-ifwe.3dexperience.3ds.com/%3Faddinmode%3Dsolidworks%26utm_medium%3DNATIVE_APP
+Line: 0
+-----------------------
+Level: Info
+Message: Tracker.js - init - version 2.0.10
+Source: https://eu1.iam.3dexperience.3ds.com/3DPassport/resources-230929151908/js/libs/Usage/Usage.js
+Line: 1
+-----------------------
+Level: Error
+Message: Uncaught Error: NetworkError: url "https://eu1.iam.3dexperience.3ds.com/login?action=get_auth_params" return ResponseCode with value "0".
+Source: https://eu1.iam.3dexperience.3ds.com/3DPassport/resources-230929151908/js/DS/W3DPassport/dsp/DSP.js
+Line: 640
+-----------------------
+Level: Error
+Message: Uncaught Error: NetworkError: url "https://eu1.iam.3dexperience.3ds.com/login?action=get_auth_params" return ResponseCode with value "0".
+Source: https://eu1.iam.3dexperience.3ds.com/3DPassport/resources-230929151908/js/DS/W3DPassport/dsp/DSP.js
+Line: 640
+-----------------------
